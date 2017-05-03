@@ -1,0 +1,49 @@
+# -*- coding: ascii -*-
+
+import praw
+
+QUESTION = ['VLookup','VLOOKUP','vlookup’,’vLookup’]
+reply_text = """Need help with vLOOKUP()?
+[fBot Example Post](https://www.reddit.com/r/fBot/comments/68rd6x/vlookup/?ref=share&ref_source=link)
+
+
+Excellent Sources:
+
+
+
+
+1. [excelisfun](https://www.youtube.com/watch?v=-hJxIMBbmZY)
+
+
+
+
+2. [Bill_Jelen](https://www.youtube.com/watch?v=-WAEzokHSJM)
+
+
+
+
+3. [Contextures](http://www.contextures.com/xlFunctions02.html)
+
+
+
+
+I am a bot.  This is the first function in my library; feel free to reply with function requests."""
+
+def main():
+        reddit = praw.Reddit('Bot1')
+        subreddit = reddit.subreddit(‘fBot’)
+        for submission in subreddit.submissions():
+                process_submission(submission)
+
+
+def process_submission(submission)
+    submission.comments.replace_more(limit=0)
+    for comment in submission.comments.list():
+        for question_phrase in QUESTION:
+            if question_phrase in comment.body:
+                print(comment.body, comment.created)
+                submission.reply(reply_text)
+                break
+
+if __name__ == ‘main’:
+        main()
